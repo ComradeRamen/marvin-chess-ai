@@ -134,10 +134,11 @@ def analyze_position(
     opponent_inc_s: float = 0.0,
     time_history_s: list[float] | None = None,
     tc_base_s: float | None = None,
+    initial_fen: str = chess.STARTING_FEN,
 ) -> dict:
     """Same analysis as `inference/app.py.analyze_position`, but dependency-injected."""
 
-    _final_board, board_history, repetition_flags = build_history_from_position(chess.Board(), moves_uci)
+    _final_board, board_history, repetition_flags = build_history_from_position(chess.Board(initial_fen), moves_uci)
 
     if board.turn == settings["human_color"]:
         active_elo = settings["human_elo"]
