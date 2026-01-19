@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:  # Manual trigger from GitHub UI
   push:
     tags:
       - 'v*'  # Triggers on version tags like v1.0.0
