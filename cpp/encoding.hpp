@@ -77,7 +77,9 @@ inline std::array<float, 8> compute_scalars(const ContextOptions& ctx) {
     float active_elo_norm = static_cast<float>(ctx.active_elo - 1900) / 700.0f;
     float opp_elo_norm = static_cast<float>(ctx.opponent_elo - 1900) / 700.0f;
     
-    int ply = ctx.fullmove_number * 2 - (ctx.is_white_turn ? 0 : 1);
+    // Fix: Ply must be 0-based monotonic (Startpos=0, Move1=1...).
+    // Fullmove starts at 1. (1-1)*2 + 0 = 0.
+    int ply = (ctx.fullmove_number - 1) * 2 + (ctx.is_white_turn ? 0 : 1);
     float ply_norm = static_cast<float>(ply) / 100.0f;
     
     float active_clock_norm = std::log1p(std::max(0.0f, ctx.active_clock_s)) / 10.0f;

@@ -181,7 +181,10 @@ def make_model_batch(
     # --- Scalars (must match dataset.py normalization) ---
     active_elo_norm = (ctx.active_elo - 1900) / 700.0
     opp_elo_norm = (ctx.opponent_elo - 1900) / 700.0
-    ply_norm = board.fullmove_number * 2 - (0 if board.turn == chess.WHITE else 1)
+    # Ply should be 0-based and monotonic (0, 1, 2, 3...). 
+    # Python-chess fullmove starts at 1.
+    # W(1) -> 0, B(1) -> 1, W(2) -> 2...
+    ply_norm = (board.fullmove_number - 1) * 2 + (0 if board.turn == chess.WHITE else 1)
     ply_norm = ply_norm / 100.0
 
     # Use actual clock times directly - no scaling for bullet games.
