@@ -40,3 +40,10 @@
 !.github/
 !.github/workflows/
 !.github/workflows/*.yml
+
+# C++ Demo
+!cpp/
+!cpp/*.cpp
+!cpp/*.hpp
+!cpp/CMakeLists.txt
+
