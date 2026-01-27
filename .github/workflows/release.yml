@@ -259,8 +259,8 @@ jobs:
             | MCTSFinalTemperature | string | 0.0 | Temperature for final move selection (0 = argmax) |
             | MCTSFinalTopP | string | 0.9 | Top-P for final move selection |
             | MCTSMaxDepth | spin | 96 | Maximum search depth (1-512) |
-            | MCTSAdaptive | check | true | Adaptive simulation count based on position |
-            | MCTSAdaptiveScale | string | 150.0 | Scale factor for adaptive simulations |
+            | MCTSAdaptive | check | true | Scale simulations based on model's predicted think time × MCTSAdaptiveScale |
+            | MCTSAdaptiveScale | string | 150.0 | Multiplier for predicted time to determine simulation count |
             | MCTSFPU | string | 0.2 | First Play Urgency - value for unexplored nodes |
             | MCTSContempt | string | 0.15 | Draw aversion (positive = avoid draws) |
             | MCTSSimulateTime | check | false | Simulate think time in MCTS |
