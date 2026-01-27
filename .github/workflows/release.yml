@@ -236,17 +236,7 @@ jobs:
             | GameBaseTime | string | 0 | Base time in seconds for internal clock |
             | GameIncrement | string | 0 | Increment in seconds for internal clock |
             
-            #### Resign & Flag
-            | Option | Type | Default | Description |
-            |--------|------|---------|-------------|
-            | EnableResign | check | false | Allow engine to resign |
-            | ResignThreshold | string | 0.98 | Resign if loss probability exceeds this |
-            | MinResignPly | spin | 20 | Don't resign before this ply (0-1000) |
-            | EnableFlag | check | false | Allow engine to flag (claim time win) |
-            | FlagThreshold | string | 0.98 | Flag if win probability exceeds this |
-            | LogResignProbs | check | false | Log resign/flag probabilities to stderr |
-            | LogTimeHistory | check | false | Log time history to stderr |
-            
+
             #### MCTS (Monte Carlo Tree Search)
             | Option | Type | Default | Description |
             |--------|------|---------|-------------|
